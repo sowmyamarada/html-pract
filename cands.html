@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>memo</title>
+    <script src="angular.min.js"></script>
+    <style> p { border: 2px solid skyblue;
+        padding-top:20px;
+padding-right:30px;
+padding-bottom:20px;
+padding-left:30px;
+background-color: aqua;
+text-align: center;
+}
+table,td,th{
+            border: 2px solid skyblue;
+  padding-top:3px;
+  padding-right:30px;
+  padding-bottom:3px;
+  padding-left:30px;
+           background-color:pink;
+}  
+div{text-align: center;}      
+</style>
+    
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+
+       <p> First Name: <input type="text" ng-model="firstName">
+       email: <input type="text" ng-model="email">
+        phoneno: <input type="number" ng-model="phoneno">
+          class: <input type="text" ng-model="class">
+        
+       </p>
+       
+        
+      <center>
+    <table  >
+        <tr>
+            <th>s.no</th>
+            <th>class</th>
+            <th>institute</th>
+            <th>percentage</th>
+
+        </tr>
+        <tr ng-repeat="x in names">
+          <td>{{x.sno}}</td>
+          <td>{{x.class}}</td> 
+          <td>{{x.institute}}</td> 
+          <td>{{x.percentage}}</td>
+        
+        </tr>
+        </table>
+        <center>
+    </div>
+
+        
+        <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope) {
+            $scope.firstName = "sowmya";
+            $scope.email="sowmya@gmail.com";
+            $scope.phoneno= 9059060161;
+             $scope.class="engineering";
+             $scope.names = [
+        {
+          "sno" : 1,
+          "class" : "tenth",
+          "institute" :"sri chaitanya",
+          "percentage" :85,
+        },
+        {
+            "sno" : 2,
+          "class" : "inter",
+          "institute" :"sri chaitanya",
+          "percentage" :90,
+          
+          
+        },
+        {
+            
+            "sno" :3,
+          "class" : "engineering",
+          "institute" :"sasi",
+          "percentage" :72,
+        },
+        
+      ]
+            
+        });
+    </script>
+    
+          
+    <div>Submit here:<input type="submit"></div>
+</body>
+
+</html>
