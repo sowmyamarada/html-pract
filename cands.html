@@ -46,7 +46,7 @@ div{text-align: center;}
             <th>percentage</th>
 
         </tr>
-        <tr ng-repeat="x in names">
+        <tr ng-repeat="x in names | orderBy: '-class'">
           <td>{{x.sno}}</td>
           <td>{{x.class}}</td> 
           <td>{{x.institute}}</td> 
