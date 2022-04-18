@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>example</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+    <style> p { border: 2px solid skyblue;
+        padding-top:20px;
+padding-right:30px;
+padding-bottom:20px;
+padding-left:30px;
+background-color: aqua;
+text-align: center;
+}
+table,td,th{
+            border: 2px solid skyblue;
+  padding-top:3px;
+  padding-right:30px;
+  padding-bottom:3px;
+  padding-left:30px;
+  
+           
+
+}  
+div{text-align: center;
+}
+.striped{
+    color: black;
+  background-color: blueviolet;
+}   
+.line{
+    background-color: pink;
+
+}   
+ 
+</style>
+    
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+
+       <p> First Name: <input type="text" ng-model="firstName">
+       email: <input type="text" ng-model="email">
+        phoneno: <input type="number" ng-model="phoneno">
+          class: <input type="text" ng-model="class"> 
+          
+          <div>
+           
+          <p>enter:<input type="text" ng-change="myFunc()" ng-model="myvalue "  placeholder="change" >
+          <p> {{count}} </p>
+        </div>
+          <div>
+          <button ng-click="click = click + 1" ng-init="click=0"  placeholder="click">click</button>
+
+          <p> {{click}} </p>
+          </div>
+          <div>
+            <button ng-dblclick="dblclick = dblclick + 1" ng-init="dblclick=0"  >dblclick</button>
+
+            <p>{{dblclick}}</p>
+          </div>
+          <div>
+            <input ng-keydown="keydown = keydown + 1" ng-init="keydown=0"  placeholder="keydown"/>
+
+            <p>{{keydown}}</p>
+          </div>
+          <div>
+            <input ng-keyup="keyup =keyup + 1" ng-init="keyup=0"  placeholder="keyup"/>
+
+            <p>{{keyup}}</p>
+            
+          </div>
+          <div>
+            <input ng-keypress="keypress =keypress + 1" ng-init="keypress=0"  placeholder="keypress" />
+
+            <p>{{keypress}}</p>
+            
+          </div>
+          <div>
+            <input ng-mousedown="mousedown =mousedown + 1" ng-init="mousedown=0"  placeholder="mousedown"/>
+
+            <p>{{mousedown}}</p>
+          </div>
+          <div>
+            <input ng-mouseup="mouseup =mouseup + 1" ng-init="mouseup=0"  placeholder="mouseup" />
+
+            <p>{{mouseup}}</p>
+            
+          </div>
+          <div>
+             <input type="checkbox" ng-model="myVar">
+
+          <div ng-hide="myVar">
+            <p>hidesowmya</p>
+          </div>
+          <div>
+            <input type="checkbox" ng-model="myval" >
+            <div ng-show="myval">
+              <p>showmarada</p>
+          </div>
+          <div>
+            <input type="checkbox" ng-model="myvariable"  ng-init="myvariable=false">
+            <div ng-if="myvariable">
+            <p>ifsowmyamarada</p>
+          </div>
+          <div>
+          <select ng-model="selectedName" ng-options="item for item in options">
+          </select>
+
+        </div>
+        <div>
+          <form name="myForm"><br><br>
+
+          <input name="myInput" ng-model="myInput" ng-minlength="5"   placeholder="minlength" >
+           
+
+        <h1 ng-if="!myForm.myInput.$valid">The value is too short</h1>
+          </form>
+        </div>
+        <div>
+          <form name="mymax"><br><br>
+
+          <input name="myIn" ng-model="myIn" ng-maxlength="5"  placeholder="maxlength" >
+            
+
+         <h1 ng-if="!mymax.myIn.$valid">The value is too long</h1>
+          </form>
+        </div>
+        <div><br><br>
+          <input type="checkbox" ng-model="all">
+
+<input type="radio" ng-disabled="all">
+<select ng-disabled="all">
+  <option>class</option>
+  <option>email</option>  
+</select>
+        </div>
+      
+      <center>
+    <table  >  
+        <tr>
+            <th>s.no</th>
+            <th>class</th>
+            <th>institute</th>  
+            <th>percentage</th>
+
+        </tr>
+        <tr ng-repeat="x in names" ng-class-even=" 'striped' " ng-class-odd = " 'line' " >
+            
+          <td>{{x.sno}}</td>
+          <td>{{x.class}}</td> 
+          <td>{{x.institute}}</td> 
+          <td>{{x.percentage}}</td>
+        
+        </tr>
+        </table>  
+        <center>
+    </div>
+
+        
+        <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope) {
+            $scope.firstName = "sowmya";
+            $scope.email="sowmya@gmail.com";
+            $scope.phoneno= 9951147456;
+             $scope.class="engineering";
+             $scope.count = 0;
+             $scope.options=["female","male","other"];
+      $scope.myFunc = function() {
+        $scope.count++;
+             $scope.names = [
+        {
+          "sno" : 1,
+          "class" : "tenth",
+          "institute" :"sri chaitanya",
+          "percentage" :85,
+        },
+        {
+            "sno" : 2,
+          "class" : "inter",
+          "institute" :"sri chaitanya",
+          "percentage" :90,
+          
+          
+        },
+        {
+            
+            "sno" :3,
+          "class" : "engineering",
+          "institute" :"sasi",
+          "percentage" :75,
+        },
+        
+      ]
+    }    
+        });
+    </script>
+    
+          
+    <div>Submit here:<input type="submit"></div> 
+    
+      
+     
+</body>
+</html>

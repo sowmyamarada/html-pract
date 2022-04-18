@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>memo</title>
-    <script src="angular.min.js"></script>
+     
     <style> p { border: 2px solid skyblue;
         padding-top:20px;
 padding-right:30px;
@@ -38,22 +38,22 @@ div{text-align: center;}
        
         
       <center>
-    <table  >
+    <table  >  
         <tr>
             <th>s.no</th>
             <th>class</th>
-            <th>institute</th>
+            <th>institute</th>  
             <th>percentage</th>
 
         </tr>
-        <tr ng-repeat="x in names | orderBy: '-class'">
+        <tr ng-repeat="x in names | orderBy: '+class'">
           <td>{{x.sno}}</td>
           <td>{{x.class}}</td> 
           <td>{{x.institute}}</td> 
           <td>{{x.percentage}}</td>
         
         </tr>
-        </table>
+        </table>  
         <center>
     </div>
 
@@ -63,7 +63,7 @@ div{text-align: center;}
         app.controller('myCtrl', function($scope) {
             $scope.firstName = "sowmya";
             $scope.email="sowmya@gmail.com";
-            $scope.phoneno= 9059060161;
+            $scope.phoneno= 9951147456;
              $scope.class="engineering";
              $scope.names = [
         {
@@ -85,7 +85,7 @@ div{text-align: center;}
             "sno" :3,
           "class" : "engineering",
           "institute" :"sasi",
-          "percentage" :72,
+          "percentage" :75,
         },
         
       ]
