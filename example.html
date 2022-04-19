@@ -13,7 +13,7 @@
 padding-right:30px;
 padding-bottom:20px;
 padding-left:30px;
-background-color: aqua;
+background-color: rgb(32, 217, 91);
 text-align: center;
 }
 table,td,th{
@@ -31,7 +31,7 @@ div{text-align: center;
 .striped{
     color: black;
   background-color: blueviolet;
-}   
+}    
 .line{
     background-color: pink;
 
@@ -108,14 +108,14 @@ div{text-align: center;
             <p>ifsowmyamarada</p>
           </div>
           <div>
-          <select ng-model="selectedName" ng-options="item for item in options">
+         <p><select ng-model="selectedName" ng-options="item for item in options"></p>
           </select>
 
         </div>
         <div>
           <form name="myForm"><br><br>
 
-          <input name="myInput" ng-model="myInput" ng-minlength="5"   placeholder="minlength" >
+          <p>  <input name="myInput" ng-model="myInput" ng-minlength="5"   placeholder="minlength" ></p>
            
 
         <h1 ng-if="!myForm.myInput.$valid">The value is too short</h1>
@@ -124,16 +124,16 @@ div{text-align: center;
         <div>
           <form name="mymax"><br><br>
 
-          <input name="myIn" ng-model="myIn" ng-maxlength="5"  placeholder="maxlength" >
+          <p> <input name="myIn" ng-model="myIn" ng-maxlength="5"  placeholder="maxlength" ></p>
             
 
          <h1 ng-if="!mymax.myIn.$valid">The value is too long</h1>
           </form>
         </div>
         <div><br><br>
-          <input type="checkbox" ng-model="all">
+        <p> <input type="checkbox" ng-model="all"></p>
 
-<input type="radio" ng-disabled="all">
+<input type="radio" ng-disabled="all"><br><br>    
 <select ng-disabled="all">
   <option>class</option>
   <option>email</option>  

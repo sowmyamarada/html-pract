@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filters</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+    <style> p { border: 2px solid skyblue;
+        padding-top:20px;
+padding-right:30px;
+padding-bottom:20px;
+padding-left:30px;
+background-color: rgb(130, 120, 70);
+text-align: center;
+    }
+    table,td,th{
+            border: 2px solid skyblue;
+  padding-top:3px;
+  padding-right:30px;
+  padding-bottom:3px;
+  padding-left:30px;
+    }
+    </style>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <div>
+        <p>my name is {{ lastname | uppercase }}</p>
+
+    </div>
+    <div>
+        <p>my name is {{ lastname | lowercase }}</p>   
+    </div>
+    <div>
+        <p>price is {{ price | currency }}</p>
+    </div>
+    <div>
+        <p>Date is {{ sampledate | date }}</p>
+    </div>
+    <div>
+        <p>number is zero decimals {{samplenumber | number:0}}</p>
+    </div>
+
+    <center> 
+    <table  >  
+        <tr>
+            <th>s.no</th>
+            <th>class</th>
+            <th>institute</th>  
+            <th>percentage</th>
+
+        </tr>
+        <tr ng-repeat="x in names | orderBy: '-class'">
+            <tr ng-repeat="x in names | filter: 't'">    
+          <td>{{x.sno}}</td>
+          <td>{{x.class}}</td> 
+          <td>{{x.institute}}</td> 
+          <td>{{x.percentage}}</td>
+        
+        </tr>
+        </table>  
+    </center>   
+    <script>
+    var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope) {
+            $scope.lastname = "sowmya";
+            $scope.firstName = "marada";
+            $scope.email="sowmya@gmail.com";
+            $scope.phoneno= 9951147456;
+             $scope.class="engineering";
+             $scope.price="1004";
+             $scope.sampledate= "19-4-2022";
+             $scope.samplenumber= 52343.1435784;
+             $scope.names = [
+        {
+          "sno" : 1,
+          "class" : "tenth",
+          "institute" :"sri chaitanya",
+          "percentage" :85,
+        },
+        {
+            "sno" : 2,
+          "class" : "inter",
+          "institute" :"sri chaitanya",
+          "percentage" :90,
+          
+          
+        },
+        {
+            
+            "sno" :3,
+          "class" : "engineering",
+          "institute" :"sasi",
+          "percentage" :75,
+        },
+        
+      ]
+            
+       
+    });
+    </script>
+    </div>
+</body>
+</html>
