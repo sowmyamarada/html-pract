@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forms</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl"  >
+        <form>
+            <h2>Check your BMI</h2>
+         <p> weight:<input type="number" ng-model="weight" ><br><br>
+            
+            height:<input  type="number" ng-model="height" ><br><br>
+            
+         <div> 
+            <button ng-click="bmicalc()">submit</button>
+            <p ng-bind="bmi"></p>
+           
+              </div>
+          
+          
+              <div>
+            <h2>mouseup</h2>
+    <img src="5.jpg"  ng-mouseup="mouseup =mouseup + 1" ng-init="mouseup=0">          
+
+
+            <p>{{mouseup}}</p>
+        </div>
+
+        <div>
+            
+            <h2>mousedown</h2>
+            <img src="6.jpg"  ng-mousedown="mousedown =mousedown + 1" ng-init="mousedown=0" >
+            <p>{{mousedown}}</p>
+        </div
+
+        <div>
+            <h2>mouseenter</h2>
+            <img src="g.jpg"  ng-mouseenter="mouseenter=mouseenter + 1" ng-init="mouseenter=0"  >
+
+          <p>  {{mouseenter}}</p>
+        </div>
+            </form>
+
+
+    </div>
+    
+
+            <script>
+           var app = angular.module("myApp", []);
+
+         app.controller('myCtrl', function($scope) {
+            $scope.height='';
+          $scope.weight='';
+
+          $scope.bmicalc =function () {
+        $scope.bmi =$scope.weight/($scope.height*$scope.height);
+      }
+});
+             
+            </script>
+</body>
+</html>
