@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>
+
+AngularJs ng-pattern Form Validation Example
+
+</title>
+
+<script src="angular.min.js"></script>
+<style>
+     input.ng-invalid{
+      background-color:rgb(72, 0, 255);
+      border: 2px solid rgb(223, 17, 127);
+     }
+
+     input.ng-valid{
+         background-color:green ;
+     border: 2px solid rgb(15, 16, 15);
+     }
+     
+    span{
+        color:blue;
+    }
+</style>
+
+
+</head>
+
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<h3> Form Validation </h3>
+
+<form name="numberForm"  ng-submit="numberForm.$valid &&sendForm()">
+
+   name:<input type="text" name="name" ng-model="firstname" ng-pattern="/^[a-zA-Z\s]*$/"required />
+
+<span  ng-show="numberForm.name.$error.required"> Required! </span>
+
+<span  ng-show="numberForm.name.$dirty&&numberForm.name.$error.pattern">Only alphabets Allowed, Maximum 6 Characters</span>
+
+<br /><br />
+
+phonenumber:<input type="number" name="phonenumber" ng-model="number" ng-pattern="/^[0-9]{1,10}$/" required />
+
+<span  ng-show="numberForm.phonenumber.$error.required"> Required! </span>
+
+<span  ng-show="numberForm.phonenumber.$dirty&&numberForm.phonenumber.$error.pattern">Only Numbers Allowed, Maximum 10 Characters</span>
+
+<br /><br />
+
+<button type="submit">Submit Form</button><br /><br />
+
+<span>{{msg}}</span>
+
+</form>
+
+</div>
+
+<script >
+
+    var app = angular.module('myApp', []);
+    
+    app.controller('myCtrl', function ($scope) {
+    
+    $scope.sendForm = function () {
+    
+    $scope.msg = "Form Validated";
+    
+    };
+    
+    });
+    
+    </script>
+
+</body>
+
+</html>

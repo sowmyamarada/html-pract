@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+ <style>
+     input.ng-invalid{
+      background-color:rgb(72, 0, 255);
+      border: 2px solid rgb(223, 17, 127);
+     }
+
+     input.ng-valid{
+         background-color:green ;
+     border: 2px solid rgb(15, 16, 15);
+     }
+
+     span{
+         color:rgb(255, 0, 0)
+     }
+
+ </style>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl"  >
+        <form name = "bmi" >
+            <h2> Check your BMI </h2>
+         <p> weight:<input type="number" name="weight" ng-model="weight" required >
+            <span  ng-show="bmi.weight.$error.required"> weight is Required. </span>
+             
+            </br></br>
+            
+           
+
+
+           
+         </p>
+             <p>  height:<input  type="number" name="height" ng-model="height" required >
+
+                <span  ng-show="bmi.height.$error.required"> height is Required. </span>
+
+            </br></br>
+                
+                
+                
+            </p> 
+         <div> 
+            <button ng-click="bmicalc()"> submit</button>
+          
+           
+        </div>
+         
+    </form>
+    <p ng-bind="bmi"></p>
+    <script>
+        var app = angular.module("myApp", []);
+
+      app.controller('myCtrl', function($scope) {
+
+        
+         $scope.height='';
+       $scope.weight='';
+       $scope.bmi="";
+
+       $scope.bmicalc =function () {
+           console.log("hello");
+     $scope.bmi =$scope.weight/($scope.height*$scope.height);
+
+       }
+    });
+          
+         </script>    
+</body>
+</html> 

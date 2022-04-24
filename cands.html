@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>memo</title>
-     
+    <title>example</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
     <style> p { border: 2px solid skyblue;
         padding-top:20px;
 padding-right:30px;
 padding-bottom:20px;
 padding-left:30px;
-background-color: aqua;
+background-color: rgb(32, 217, 91);
 text-align: center;
 }
 table,td,th{
@@ -20,9 +22,21 @@ table,td,th{
   padding-right:30px;
   padding-bottom:3px;
   padding-left:30px;
-           background-color:pink;
+  
+           
+
 }  
-div{text-align: center;}      
+div{text-align: center;
+}
+.striped{
+    color: black;
+  background-color: blueviolet;
+}    
+.line{
+    background-color: pink;
+
+}   
+ 
 </style>
     
 </head>
@@ -32,11 +46,10 @@ div{text-align: center;}
        <p> First Name: <input type="text" ng-model="firstName">
        email: <input type="text" ng-model="email">
         phoneno: <input type="number" ng-model="phoneno">
-          class: <input type="text" ng-model="class">
-        
-       </p>
-       
-        
+          class: <input type="text" ng-model="class"> 
+          </select>
+        </div>
+      
       <center>
     <table  >  
         <tr>
@@ -46,7 +59,8 @@ div{text-align: center;}
             <th>percentage</th>
 
         </tr>
-        <tr ng-repeat="x in names | orderBy: '+class'">
+        <tr ng-repeat="x in names ">
+            
           <td>{{x.sno}}</td>
           <td>{{x.class}}</td> 
           <td>{{x.institute}}</td> 
@@ -55,7 +69,7 @@ div{text-align: center;}
         </tr>
         </table>  
         <center>
-    </div>
+    
 
         
         <script>
@@ -89,12 +103,13 @@ div{text-align: center;}
         },
         
       ]
-            
+     
+
         });
     </script>
     
           
-    <div>Submit here:<input type="submit"></div>
+    <div>Submit here:<input type="submit"></div> 
 </body>
 
 </html>
